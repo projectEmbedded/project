@@ -31,7 +31,7 @@ void SysTick_Wait1ms()
 {
 SysTick_Wait(16000);
 }
-void delay_ms(int num) //delay bel second.
+void delay_ms(int num) 
 {
 int i; 
 for(i=0; i<num; i++)
