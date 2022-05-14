@@ -26,7 +26,7 @@ leds_on();
 	 
 	}
  
-i=59;                                // reset second every loop 
+i=59;                                // reset second every minute
 }
   
 }
