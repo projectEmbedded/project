@@ -5,7 +5,8 @@ void timer(int m,int s)
 { int y;
 int j=m;
 int i=s;
-leds_on();
+int k;
+	leds_on();
 
   for(; j>=0 ; j--)                       // minute parameter 
 	{
@@ -21,12 +22,13 @@ leds_on();
 	  LCD4bits_Data(':');
 	  LCD4bits_Data((i/10) +'0');       // tens of second
 	  LCD4bits_Data((i%10)+'0');       // units of second 
-    delay_ms(1000);                     // wait for 1 second
-	  LCD4bits_Cmd(0x01);             // clear lcd display 
+    k=delay_mil();                   // wait for 1 second
+	  if(k==1) return;                 // check if switch 1 is pressed or not 
+		LCD4bits_Cmd(0x01);             // clear lcd display 
 	 
 	}
  
-i=59;                                 // reset second every minute
+i=59;                                // reset second every loop
 }
   
 }
