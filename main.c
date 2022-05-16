@@ -96,19 +96,19 @@ void weight_chicken(void)
 		}
 
 
+
  int pause(void)
 { int i;
 	delay_milli(1000);  
 	while(1)
 	{
-	   if((GPIO_PORTF_DATA_R& 0x01)==0)
+	   if (((GPIO_PORTF_DATA_R &0x01)==0) &&!(GPIO_PORTA_DATA_R &0x08)==0) 
 		 {return 0;}
-	    if ((GPIO_PORTF_DATA_R & 0X10)==0)
+	    if (((GPIO_PORTF_DATA_R &0X10)==0)&&(!(GPIO_PORTA_DATA_R &0x08)==0))  
  	{
 	     LCD4bits_Cmd(0x01);
 	      	return 1;
 	}
-
 
 }
  }
