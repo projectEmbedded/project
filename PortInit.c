@@ -10,7 +10,7 @@ void PortA_init(void){
         GPIO_PORTA_DIR_R |=0X04;
 	GPIO_PORTA_DEN_R |= 0x0C;
 	GPIO_PORTA_PUR_R|=0X08;
-	GPIO_PORTA_DATA_R |=0x08;	
+	GPIO_PORTA_DATA_R &=~0x0C;	
 }
 void PortB_init(void){        
 	SYSCTL_RCGCGPIO_R |= 0x02;
@@ -62,7 +62,7 @@ void switches (void)
 	 GPIO_PORTF_PUR_R |=0x11;
 	 GPIO_PORTF_DEN_R|=0X11;
 	 GPIO_PORTF_DIR_R&=~0X11;
-	 GPIO_PORTF_DATA_R|=0X11;
+	 GPIO_PORTF_DATA_R&=~0X11;
 }       
 
 
