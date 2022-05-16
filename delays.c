@@ -50,14 +50,13 @@ int  delay_mil()
 int i,h; 
 
 	for(i=0; i<20; i++)
-{ if(Switch1_input()==0)
+{ if( (Switch1_input()==0) ||(switch3_input()==0))  
 	{
 	
 		h=pause(); 
 	   if(h==1) return 1;  
 	
 	}
-	
 	SysTick_Wait50ms();
 }
 }
