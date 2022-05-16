@@ -23,12 +23,14 @@ int k;
 	  LCD4bits_Data((i/10) +'0');       // tens of second
 	  LCD4bits_Data((i%10)+'0');       // units of second 
     k=delay_mil();                   // wait for 1 second
-	  if(k==1) return;                 // check if switch 1 is pressed or not 
-		LCD4bits_Cmd(0x01);             // clear lcd display 
-	 
-	}
- 
+     if(k==1) 
+	{	
+         leds_off();
+	    return;
+	}                 // check if switch 1 is pressed or not 
+	 LCD4bits_Cmd(0x01);             // clear lcd display 
+	 }
 i=59;                                // reset second every loop
 }
-  
+   finished();
 }
