@@ -10,6 +10,7 @@ void weight_beef(void)
 	 
   int time,j;
   char n=get_keypad_input(); 
+   buzzer();
 	  
 	 while (!(n<=(9+'0') && n>=(1+'0')))              
 			{ 
@@ -25,6 +26,7 @@ void weight_beef(void)
 		   delay_ms(2000);	                 
 		   LCD4bits_Cmd(0x01);
 			 n=get_keypad_input(); 
+                         buzzer();
 			 delay_ms(2000);
 			}
 		         delay_milli(1000);
