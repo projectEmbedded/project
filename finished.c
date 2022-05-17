@@ -15,3 +15,4 @@ void finished(void)
 		GPIO_PORTF_DATA_R =GPIO_PORTF_DATA_R^0x0E; 	
 	        LCD4bits_Cmd(0x01);
 }
+ 
