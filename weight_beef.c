@@ -32,7 +32,7 @@ void weight_beef(void)
 			       delay_milli(2000);	
 	           LCD4bits_Cmd(0x01);
        
-			 time=((int)(n-'0'))*30;    
+			 time=((n-'0'))*30;    
 			 if(time>60)
 			 {
 				while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);
