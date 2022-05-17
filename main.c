@@ -51,13 +51,13 @@ switches();
 		{ 
 			LCD4bits_Data(' ');
 		}
-	 LCD_WriteString("POPCORN");
+   LCD_WriteString("POPCORN");
    while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
    delay_ms(1000);
    LCD4bits_Cmd(0x01);
    timer(1,0);
-  goto start;
-  break;
+   goto start;
+   break;
  }
 	
  case('B'):
@@ -73,10 +73,10 @@ switches();
                   delay_ms(1000);
      	          weight_beef();
 		  goto start;
-			break;
+		 break;
 		}
 
-   case ('C'):
+  case ('C'):
 { 
 
 	 LCD_WriteString("Chicken weight?");
@@ -85,10 +85,10 @@ switches();
          delay_ms(1000);
          weight_chicken();
          goto start;
-			break;
+	 break;
 }
 		
-		case ('D'):
+  case ('D'):
   {  
 	
 	LCD_WriteString("Cooking Time?");
@@ -109,14 +109,14 @@ temp0=get_keypad_input();       // getting  second digit in min (tens)
 buzzer();                       //the buzzer produces an audible tone while pressing on the keypad
 if(temp0=='y')                  // checking if switch1 is pressed
 {
-  LCD4bits_Cmd(0x01);         //  if pressed then clear the lcd 
+ LCD4bits_Cmd(0x01);         //  if pressed then clear the lcd 
  goto start;                  // then goto idle and wait for a new input
 }
 delay_ms(200);               // wait for 200 milliseconds
 cursor_decrement(1);         // shifting cursor to the left
 LCD4bits_Data(temp0);        //displaying second digit in min  
 temp1=get_keypad_input();    // getting  first digit in min (units)
-  buzzer();                  //the buzzer produces an audible tone while pressing on the keypad
+ buzzer();                  //the buzzer produces an audible tone while pressing on the keypad
   if(temp1=='y')              // checking if switch1 is pressed
  {          
   LCD4bits_Cmd(0x01);        // if pressed then clear the lcd 
