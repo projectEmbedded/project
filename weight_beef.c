@@ -37,12 +37,12 @@ void weight_beef(void)
 			 time=((n-'0'))*30;    			 // calculate the time after get the number of kilos 
 			 if(time>60)			 // make sure that the number if larger thean 60 sec then it will be converted to minutes and seconds 
 			 {
-				while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);   // the while loop to make sure that sw2 is pressed and sw3 open	
+				while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);  // the while loop to make sure that sw2 is pressed and sw3 open	
 			  timer(time/60,(time%60)); 			 // get the minutes and the seconds for the function timer 
 			 }
 			 else			 // if the number is not more than 60 seconds it will be converted to seconds only 
 			 {
-				 while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);   // the while loop to make sure that sw2 is pressed and sw3 open
+				 while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);   // the while loop to make sure that sw2 is pressed and sw3 open
 				 timer(0,time); 			 // the timer input (seconds only)
 			 } 
 			 
