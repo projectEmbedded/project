@@ -40,8 +40,8 @@ switches();
 	 idle();
 	 delay_milli(200);
 	 LCD_WriteString("mode?");
-   x=get_keypad_input();
-   buzzer();	 
+         x=get_keypad_input();
+         buzzer();	 
 	 LCD4bits_Cmd(0x01);
 	 switch(x)
  {
@@ -52,7 +52,7 @@ switches();
 			LCD4bits_Data(' ');
 		}
 	 LCD_WriteString("POPCORN");
-   while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);
+   while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
    delay_ms(1000);
    LCD4bits_Cmd(0x01);
    timer(1,0);
@@ -62,29 +62,29 @@ switches();
 	
  case('B'):
 		{
-			for(j=0;j<2;j++)
-				{ 
-					LCD4bits_Data(' ');
+		for(j=0;j<2;j++)
+			{ 
+			  LCD4bits_Data(' ');
 				
-				}
+			}
 		  LCD_WriteString("Beef weight?");
 		  delay_ms(2000);
 		  LCD4bits_Cmd(0x01);
-      delay_ms(1000);
-     	weight_beef();
-		goto start;
+                  delay_ms(1000);
+     	          weight_beef();
+		  goto start;
 			break;
 		}
 
    case ('C'):
 { 
 
-	LCD_WriteString("Chicken weight?");
+	 LCD_WriteString("Chicken weight?");
 	 delay_milli(2000);
-   LCD4bits_Cmd(0x01);
-   delay_ms(1000);
-   weight_chicken();
- goto start;
+         LCD4bits_Cmd(0x01);
+         delay_ms(1000);
+         weight_chicken();
+         goto start;
 			break;
 }
 		
@@ -155,8 +155,8 @@ LCD4bits_Data(temp2);              // displaying second digit in second
 LCD4bits_Data(temp3);               // displaying first digit in second
 LCD4bits_Cmd(0x01);                 // clear the lcd
 if((temp0>=(3+'0')) && (temp1>=(0+'0'))&& (temp2>=(0+'0')) && (temp3>=0+'0')) goto user_input; // check if time input is >30 min then goto userinput again
- if((temp0=(0+'0')) && (temp1=(0+'0'))&& (temp2=(0+'0')) && (temp3=0+'0')) goto user_input; // check if time input is<1 second then goto userinput again
-while(!(GPIO_PORTF_DATA_R&0x01)==0); // wait unit switch2 is pressed
+ if((temp0=(0+'0')) && (temp1=(0+'0'))&& (temp2=(0+'0')) && (temp3<(1+'0'))) goto user_input; // check if time input is <1 second then goto userinput again
+while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0); // wait until switch2 is pressed while the door is closed
 timer((temp0-'0')*10 +(temp1-'0'),(temp2-'0')*10+(temp3-'0')); 
  goto start;
   break;
