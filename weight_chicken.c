@@ -33,13 +33,13 @@ void weight_chicken(void)
 			 time=((n-'0'))*12;    
 			 if(time>60)
 			 {
-				while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);
+				while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
 			  timer(time/60,(time%60));
 			 
 			 }
 			 else
 			 {
-				 while(!(GPIO_PORTF_DATA_R&0x01)==0 && !switch3_input()==0);
+				 while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
 				 timer(0,time); 
 			 } 
 			 
