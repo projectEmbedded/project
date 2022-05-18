@@ -5,3 +5,4 @@ void SysTick_Wait1ms();
 void delay_ms(int num);
 void SysTick_Wait50ms();
 int delay_mil();
+//gg
