@@ -4,7 +4,7 @@
 #include "timer.h"
 void finished(void)
 {   int k;
-	   LCD4bits_Cmd(0x01);
+	  LCD4bits_Cmd(0x01);
 		LCD_WriteString("finished");
 		for(k=0;k<6;k++)
 		{
@@ -12,9 +12,6 @@ void finished(void)
 			GPIO_PORTF_DATA_R =GPIO_PORTF_DATA_R^0x0E; //toggle the leds
 		  delay_ms(500);
 		}
-		
- 
-          GPIO_PORTF_DATA_R =GPIO_PORTF_DATA_R^0x0E;	
-          LCD4bits_Cmd(0x01);
+		  GPIO_PORTF_DATA_R =GPIO_PORTF_DATA_R^0x0E;	
+		LCD4bits_Cmd(0x01);
 }
-
