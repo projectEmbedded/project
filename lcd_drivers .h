@@ -11,6 +11,6 @@ void LCD4bits_Cmd(unsigned char command);
 
 void LCD4bits_Init(void);
 void cursor_decrement(int f);
-
+void spaces(int n);
 
 	
