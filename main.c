@@ -36,9 +36,11 @@ switches();
  
 	while(1)
  { 
-	 start :
-	 idle();
+	start :             
+	 idle();                         
 	 delay_milli(200);
+	 LCD4bits_Cmd(0X01); 
+         spaces(4);
 	 LCD_WriteString("mode?");
          x=get_keypad_input();
          buzzer();	 
