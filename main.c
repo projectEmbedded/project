@@ -16,9 +16,9 @@ int h;
  
  void idle(void)
 {
-  
+   LCD_WriteString("close the door");
 	while((GPIO_PORTA_DATA_R&0X08)==0);
-	 
+	
 }
  
  
