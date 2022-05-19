@@ -67,6 +67,14 @@ void cursor_decrement(int f)
      LCD4bits_Cmd(0x10);
   }
 }
-	
+		
+void spaces(int n)
+{ int v;
+	for(v=0 ; v<n; v++)
+	{
+	LCD4bits_Data(' ');
+	}
+
+}
 
 
