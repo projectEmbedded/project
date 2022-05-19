@@ -25,10 +25,10 @@ void weight_chicken(void)
 			 delay_ms(2000);
 			}
 		
-		    delay_milli(1000);
+		          delay_ms(1000);
 			  LCD4bits_Data(n);
-			  delay_milli(2000);	
-	      LCD4bits_Cmd(0x01);
+			  delay_ms(2000);	
+	               LCD4bits_Cmd(0x01);
        
 			 time=((n-'0'))*12;    
 			 if(time>60)
