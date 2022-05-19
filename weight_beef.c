@@ -29,10 +29,10 @@ void weight_beef(void)
                          buzzer();			
 			 delay_ms(2000);
 			}
-		         delay_milli(1000);			 // if the number is valid then we will wait for delay 
+		                delay_ms(1000);			 // if the number is valid then we will wait for delay 
 			       LCD4bits_Data(n);		 // display th number of kilos on the LCD
 			       delay_ms(2000);	
-	           LCD4bits_Cmd(0x01);				 // clear the LCd 
+	                     LCD4bits_Cmd(0x01);				 // clear the LCd 
        
 			 time=((n-'0'))*30;    			 // calculate the time after get the number of kilos 
 			 if(time>60)			 // make sure that the number if larger thean 60 sec then it will be converted to minutes and seconds 
