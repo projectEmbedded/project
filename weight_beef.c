@@ -31,7 +31,7 @@ void weight_beef(void)
 			}
 		         delay_milli(1000);			 // if the number is valid then we will wait for delay 
 			       LCD4bits_Data(n);		 // display th number of kilos on the LCD
-			       delay_milli(2000);	
+			       delay_ms(2000);	
 	           LCD4bits_Cmd(0x01);				 // clear the LCd 
        
 			 time=((n-'0'))*30;    			 // calculate the time after get the number of kilos 
