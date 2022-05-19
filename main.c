@@ -38,7 +38,7 @@ switches();
  { 
 	start :             
 	 idle();                         
-	 delay_milli(200);
+	 delay_ms(200);
 	 LCD4bits_Cmd(0X01); 
          spaces(4);
 	 LCD_WriteString("mode?");
@@ -75,7 +75,7 @@ switches();
 { 
 
 	 LCD_WriteString("Chicken weight?");
-	 delay_milli(2000);
+	 delay_ms(2000);
          LCD4bits_Cmd(0x01);
          delay_ms(1000);
          weight_chicken();
