@@ -49,10 +49,7 @@ switches();
  {
 	case ('A'):                              
  {
-  for(j=0;j<3;j++)
-		{ 
-			LCD4bits_Data(' ');
-		}
+   spaces(3);
    LCD_WriteString("POPCORN");
    while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
    delay_ms(1000);
@@ -64,11 +61,7 @@ switches();
 	
  case('B'):
 		{
-		for(j=0;j<2;j++)
-			{ 
-			  LCD4bits_Data(' ');
-				
-			}
+		  spaces(2);
 		  LCD_WriteString("Beef weight?");
 		  delay_ms(2000);
 		  LCD4bits_Cmd(0x01);
