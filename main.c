@@ -34,28 +34,28 @@ LCD4bits_Init();
 switches();
  
  
-	while(1)
+while(1)
  { 
-	start :             
-	 idle();                         
-	 delay_ms(200);
-	 LCD4bits_Cmd(0X01); 
-         spaces(4);
-	 LCD_WriteString("mode?");
-         x=get_keypad_input();
-         buzzer();	 
-	 LCD4bits_Cmd(0x01);
-	 switch(x)
+	 start :                     // start label 
+	 idle();                     // idle state 
+	 delay_milli(200);           // wait for 200 ms
+	 LCD4bits_Cmd(0X01);         // clear lcd 
+   spaces(4);                   // displays 4 spaces
+	 LCD_WriteString("mode?");        // display mode?
+   x=get_keypad_input();             // waiting for input from the keypad
+   buzzer();	                       // the buzzer produces an audible tone while pressing on the keypad
+	 LCD4bits_Cmd(0x01);              // clear the lcd
+	switch(x)                          
  {
-	case ('A'):                              
+	case ('A'):                               
  {
-   spaces(3);
-   LCD_WriteString("POPCORN");
-   while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0);
-   delay_ms(1000);
-   LCD4bits_Cmd(0x01);
-   timer(1,0);
-   goto start;
+   spaces(3);                          // display 3 spaces
+   LCD_WriteString("POPCORN");       //display popcorn
+   while(!(GPIO_PORTF_DATA_R&0x01)==0 || (GPIO_PORTA_DATA_R&0X08)==0); // wait until switch2 is pressed while the door is closed
+   delay_ms(1000);                // wait for 1 sec
+   LCD4bits_Cmd(0x01);            // clear lcd
+   timer(1,0);                    // display 1 minute and count down
+   goto start;                   // go back to the start label
    break;
  }
 	
