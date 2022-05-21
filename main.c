@@ -21,10 +21,10 @@ int h;
 	delay_milli(200);             // wait for 200 ms
 	 LCD4bits_Cmd(0X01);           // clear lcd 
          spaces(4);                    // displays 4 spaces
-	 LCD_WriteString("mode?"); 
-         x=get_keypad_input(); 
-         buzzer();
-         LCD4bits_Cmd(0x01);  
+	 LCD_WriteString("mode?"); 	// displays "mode?"
+         x=get_keypad_input(); 		// get the input ( A,B,C,D)
+         buzzer();			// function buzzer to make sound every time we prss on the keypad
+         LCD4bits_Cmd(0x01);  		// clear lcd 
 }
  
  
@@ -32,7 +32,7 @@ int h;
 	int main (void)
 { int y,z,h,j;
 	char k,temp1,temp2,temp3,n;
-Leds_init();
+Leds_init();		
 PortA_init();
 PortC_init();
 PortE_init();
@@ -61,40 +61,40 @@ while(1)
 	
  case('B'):
 		{
-		  spaces(2);
-		  LCD_WriteString("Beef weight?");
-		  delay_ms(2000);
-		  LCD4bits_Cmd(0x01);
-                  delay_ms(1000);
-     	          weight_beef();
-		  goto start;
+		  spaces(2); 
+		  LCD_WriteString("Beef weight?");	//ask for the beef weight 	
+		  delay_ms(2000);			// delay for 2 seconds 
+		  LCD4bits_Cmd(0x01);			// clear lcd 
+                  delay_ms(1000);			// delay for 1 second 
+     	          weight_beef();			// call the function (weight_beef()) to calculate the time and take th number of kilos
+		  goto start;				// back to label start 
 		 break;
 		}
 
   case ('C'):
 { 
 
-	 LCD_WriteString("Chicken weight?");
-	 delay_ms(2000);
-         LCD4bits_Cmd(0x01);
-         delay_ms(1000);
-         weight_chicken();
-         goto start;
+	 LCD_WriteString("Chicken weight?");		//ask for the Chicken weight
+	 delay_ms(2000);				// delay for 2 seconds
+         LCD4bits_Cmd(0x01);				// clear lcd 
+         delay_ms(1000);				// delay for 1 second
+         weight_chicken();				// call the function (weight_chicken()) to calculate the time and take th number of kilos
+         goto start;					// back to label start
 	 break;
 }
 		
   case ('D'):
   {  
 	
-	LCD_WriteString("Cooking Time?");
-        delay_ms(2000);
-	LCD4bits_Cmd(0X01);
-	user_input :
-	LCD_WriteString("maximum 30 min");
-	LCD4bits_Cmd(0xc0);
-	LCD_WriteString("minimum 1 second");
-	delay_ms(2000);
-	LCD4bits_Cmd(0x01);
+	LCD_WriteString("Cooking Time?");		//ask for the Cooking Time
+        delay_ms(2000);					// delay for 2 seconds	
+	LCD4bits_Cmd(0X01);				// clear lcd 
+	user_input :					// call the function (user_input) to take the time which the user want	
+	LCD_WriteString("maximum 30 min");		// the maximum time is 30 minute
+	LCD4bits_Cmd(0xc0);			
+	LCD_WriteString("minimum 1 second");		// the minimum time is 1 second 
+	delay_ms(2000);					// delay for 2 seconds
+	LCD4bits_Cmd(0x01);				// clear lcd 
   Again :
         spaces(4); // printing 4 spaces to center the count time
 	  LCD_WriteString("00:00");       // writing (00:00) on lcd  
