@@ -14,12 +14,8 @@ void weight_beef(void)
 	  
 	 while (!(n<=(9+'0') && n>=(1+'0')))    // this loop to make sure that the number we get from the keypad is between 1 and 9            
 			{ 
-			 for(j=0;j<4;j++)       // the for loop to print space on the lcd and make any thing in the center 
-				{ 
-					LCD4bits_Data(' '); 
-				
-				}
-			 LCD_WriteString("Err");     		 // if the number of kilos not in between of 1 and 9 the lcd will display "ERR"
+			   spaces(4);                            //  printing spaces on the lcd and make any thing in the center 
+			LCD_WriteString("Err");     		 // if the number of kilos not in between of 1 and 9 the lcd will display "ERR"
 			 delay_ms(2000);			 // we make delay then show the next command 
 		   LCD4bits_Cmd(0x01);				 // clear the LCD 
 			 LCD_WriteString("Beef weight?");  	 // then show th text ("Beef weight?") on the LCD 
