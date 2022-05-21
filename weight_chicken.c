@@ -9,12 +9,9 @@ void weight_chicken(void)
  char n=get_keypad_input();
  buzzer();
   while (!(n>=(1+'0') && n<=(9+'0')))
-		{  for(j=0;j<4;j++)
-				{ 
-					LCD4bits_Data(' ');
-				
-				}
-			 LCD_WriteString("Err");
+		{  
+	             spaces(4);
+	           LCD_WriteString("Err");
 			 delay_ms(2000);
 		   LCD4bits_Cmd(0x01);
 			 LCD_WriteString("Chicken weight?");
