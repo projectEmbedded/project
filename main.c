@@ -10,21 +10,28 @@
 #include "leds_on.h"
 #include "switches_inputs.h"
 #include "weight_functions.h"
-char temp0,temp1,temp2,temp3;
+char x, emp0,temp1,temp2,temp3;
 int h;
 
  
  void idle(void)
 {
-   LCD_WriteString("close the door");
+        LCD_WriteString("close the door");
 	while((GPIO_PORTA_DATA_R&0X08)==0);
-	
+	delay_milli(200);             // wait for 200 ms
+	 LCD4bits_Cmd(0X01);           // clear lcd 
+         spaces(4);                    // displays 4 spaces
+	 LCD_WriteString("mode?"); 
+         x=get_keypad_input(); 
+         buzzer();
+         LCD4bits_Cmd(0x01);  
 }
+ 
  
  
 	int main (void)
 { int y,z,h,j;
-	char x,k,temp1,temp2,temp3,n;
+	char k,temp1,temp2,temp3,n;
 Leds_init();
 PortA_init();
 PortC_init();
@@ -38,13 +45,6 @@ while(1)
  { 
 	 start :                     // start label 
 	 idle();                     // idle state 
-	 delay_milli(200);           // wait for 200 ms
-	 LCD4bits_Cmd(0X01);         // clear lcd 
-   spaces(4);                   // displays 4 spaces
-	 LCD_WriteString("mode?");        // display mode?
-   x=get_keypad_input();             // waiting for input from the keypad
-   buzzer();	                       // the buzzer produces an audible tone while pressing on the keypad
-	 LCD4bits_Cmd(0x01);              // clear the lcd
 	switch(x)                          
  {
 	case ('A'):                               
