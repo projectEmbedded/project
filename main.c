@@ -10,7 +10,7 @@
 #include "leds_on.h"
 #include "switches_inputs.h"
 #include "weight_functions.h"
-char x, emp0,temp1,temp2,temp3;
+char x, temp0,temp1,temp2,temp3;
 int h;
 
  
